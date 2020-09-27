@@ -1,0 +1,224 @@
+.jd_layout{
+    width: 100%;
+    /* 最大宽度 */
+    max-width: 640px;
+    min-width: 320px;
+    margin: 0 auto;
+    background-color: #eee;
+    
+}
+.jd_search{
+    width:100%;
+    height:40px;
+    position: fixed;
+    background:rgba(233, 35,34, 0);
+    max-width: 640px;
+    z-index: 999;
+}
+.jd_searchBox{
+    /* 宽度参考父容器 */
+    width: 100%;
+    height: 100%;
+    padding-left:76px;
+    padding-right: 50px;
+}
+/* input虽是行内但为可置换元素 可以设置行高 */
+.jd_searchBox>input{
+    width:100%;
+    height:30px;
+    margin-top: 5px;
+    border-radius:15px;
+    padding-left: 30px;
+}
+.jd_logo{
+    width: 56px;
+    height: 30px;
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    background:url("../images/jd-sprites.png");
+    background-size: 200px 200px;
+    background-position: 0px -108px;
+}
+.jd_login{
+    width:40px;
+    height: 40px;
+    position: absolute;
+    top:0;
+    right:0;
+    line-height: 40px;
+    color: #fff;
+}
+/* 使用伪元素添加放大镜 */
+.jd_searchBox::before{
+    content: "";
+    width: 27px;
+    height: 23px;
+    position: absolute;
+    background:url("../images/jd-sprites.png");
+    background-size: 200px 200px;
+    background-position: -56px -108px;
+    left:80px;
+    top:9px;
+}
+
+/* relative百分比相对于父容器定位 */
+/* 轮播图 */
+/* 所有毗邻的两个或更多盒元素的margin
+将会合并为一个margin共享之。毗邻的定义为：同级或者嵌套的盒元素，并且它们之间没有非空内容、Padding或Border分隔。 */
+/* overflow能清除浮动的原因在于加了overflow之后就触发bfc，bfc中高度自动计算会包括浮动元素  BFC内元素不影响外元素，不同BFC
+相邻的块级元素不会发生margin合并 */
+/* BFC 主要涉及margin合并  清除浮动  同一个BFC里会发生margin合并  body div里都是同个BFC*/
+.jd_banner{
+    width:100%;
+    overflow: hidden;
+    position: relative;
+}
+/* postion:absolute;如果使用，会造成父容器无法获取子元素撑开的高度 */
+.jd_bannerImg{
+    width:1000%;
+    position: relative;  
+    /* transform: translateX(-10%);  参考自身  absolute和浮动会脱离文档流，不能撑开父元素 */  
+    /*left: -100%;   参考父容器  使用left要加position 使用百分比定位，参考父元素  */
+}
+.jd_bannerImg>li{
+    width:10%;
+    float: left;
+}
+.jd_bannerImg>li img{
+    width:100%;
+    display: block;
+}
+.jd_bannerIndicator{
+    width: 150px;
+    height: 10px;
+    position: absolute;
+    left:50%;
+    bottom: 5px;
+    transform: translateX(-50%);
+}
+
+.jd_bannerIndicator>li{
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+    border: 1px solid #fff;
+    float: left;
+    margin-left: 10px;
+    
+}
+.jd_bannerIndicator>li:first-of-type{
+    margin-left: 0;
+}
+.jd_bannerIndicator>li.active{
+    background-color:#fff;
+}
+
+/* 导航块 */
+.jd_nav{
+    width:100%;
+    padding:10px 0;
+    background-color: #fff;
+}
+
+.jd_nav li{
+    width:25%;
+    float: left;
+    text-align: center;
+}
+.jd_nav li img{
+    width:60px;
+}
+
+/* 产品块 */
+.jd_product{
+    width:100%;
+}
+.jd_productBox{
+    width: 100%;
+    margin-top:10px;
+    background-color: #fff;
+    box-shadow: 1px 1px 1px #ccc;
+}
+.jd_pTip{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px solid #ccc;
+    color: #666;
+    padding-left:30px;
+}
+.jd_pTip h3{
+    position: relative;
+}
+.jd_pTip h3::before{
+    width:3px;
+    height:14px;
+    content:"";
+    background-color: #e92322;
+    position: absolute;
+    top: 8px;
+    left: -7px;
+}
+/* 产品块图片超链接 */
+.a_50{
+    width: 50%;
+    display: block;
+}
+.a_50>img{
+    width:100%;
+    display: block;
+}
+.b_left{
+    border-left: 1px solid #ccc;
+}
+.b_right{
+    border-right: 1px solid #ccc;
+}
+.b_bottom{
+    border-bottom: 1px solid #ccc;
+}
+/* >为直接子元素  .子元素即可 */
+/* block不能通过text-align水平居中 */
+.jd_sk>.jd_pTip{
+    border-bottom: none;
+}
+.jd_sk_icon{
+    width:16px;
+    height: 20px;
+    background: url("../images/seckill-icon.png");
+    background-size: 16px 20px;
+    margin-top: 4px;
+}
+.jd_sk_text{
+    color:#e92322;
+    font-weight: bold;
+}
+.jd_sk_time>span{
+    width:10px;
+    height: 18px;
+    display: inline-block;
+    line-height: 18px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+}
+.jd_sk_time>span:nth-last-of-type(3n){
+    color: #000;
+    background-color: transparent;
+}
+.jd_sk>.jd_pContent{
+    padding: 20px;
+}
+.jd_sk>.jd_pContent>ul{
+    width: 100%;
+}
+.jd_sk>.jd_pContent>ul>li{
+    width: 33.33%;
+    float: left;
+    text-align: center;
+}
+.jd_sk>.jd_pContent>ul>li img{
+    width: 60%;
+    display: inline-block;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(to right, red, blue);
+        }
+    </style>
+    <script>
+        //要等页面加载完监听，不然监听不到 所以加上onload
+        window.onload = function () {
+            var startX, startY, moveX, moveY, distanceX, distanceY;
+            var div = document.querySelector("div");
+            // 开始触摸
+            document.addEventListener("touchstart", function (e) {
+                startX = e.targetTouches[0].clientX;
+                startY = e.targetTouches[0].clientY;
+                console.log(e);
+            });
+            // 开始移动
+            document.addEventListener("touchmove", function (e) {
+                moveX = e.targetTouches[0].clientX;
+                moveY = e.targetTouches[0].clientY;
+                distanceX = moveX - startX;
+                distanceY = moveY - startY;
+                // 设置div的便宜
+                e.target.style.transform = "translate(" + distanceX + "px," + distanceY + "px)";
+            });
+        };
+        //     var div=document.getElementById('div');
+        // div.addEventListener('touchstart',function(e){
+        //     //touchstart:触摸开始的一瞬间，这里的e包含的触摸一瞬间所触摸的元素的信息
+        // });
+        // div.addEventListener('touchmove',function(e){
+        //     //touchmove:触摸进行时，这里的e包含的触摸的元素信息
+        // });
+        // div.addEventListener('touchend',function(e){
+        //     //touchend:触摸结束的一瞬间，这里的e没有多大的作用
+        // });
+    </script>
+</head>
+
+<body>
+    <div>1</div>
+    <div>2</div>
+</body>
+
+</html>
